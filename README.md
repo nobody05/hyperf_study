@@ -6,14 +6,20 @@ demos study php hyperf framework
 ## 文件说明
 
 - app
+   - Aspect                      切面
+     -TestAspect.php             切面类
    - Controller
      - RoomController.php        聊天首页
      - SocketIoController.php    聊天socket控制器
      - WebSocketController.php   
+     - AopTestController.php     
    - config
      - autoload
         - server.php             server配置
         - view.php               模板配置
+   - Service
+     - LogService.php            记录日志
+     - LoginService.php          登录service
    - public
      - js
         - socket.io.js
