@@ -20,6 +20,8 @@ demos study php hyperf framework
    - Service
      - LogService.php            记录日志
      - LoginService.php          登录service
+   - swoole_demo                 swoole的一些测试
+   - reflection                  注解及反射的原理  
    - public
      - js
         - socket.io.js
