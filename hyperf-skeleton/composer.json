@@ -40,7 +40,12 @@
         "hyperf/socketio-server": "^2.0",
         "hyperf/view": "^2.0",
         "hyperf/task": "^2.0",
-        "duncan3dc/blade": "^4.10"
+        "duncan3dc/blade": "^4.10",
+        "phpoffice/phpspreadsheet": "^1.14",
+        "cache/simple-cache-bridge": "^1.0",
+        "cache/redis-adapter": "^1.0",
+        "illuminate/database": "^7.27",
+        "hyperf/crontab": "^2.0"
     },
     "require-dev": {
         "swoole/ide-helper": "^4.5",

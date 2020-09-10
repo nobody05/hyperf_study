@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>socketIo</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+    <script src="../../js/jquery1.10.0.js"></script>
     <script src="../../js/socket.io.js"></script>
 
     <link rel="stylesheet" href="../../css/socketio.css">
