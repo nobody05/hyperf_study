@@ -29,7 +29,7 @@ class UserService
         }
 
         $list = $builder
-            ->select(['id', 'nickname', 'email'])
+            ->select(['id', 'nickname', 'province', 'city'])
             ->paginate($pageSize, ['*'], 'page', $page)->items();
 
         return Wraper::pageListWraper($list, $total, $page, $pageSize);
@@ -43,8 +43,8 @@ class UserService
             ->where("id", "<", $maxId);
 
         $list = $builder
-            ->select(['id', 'nickname', 'email'])
-            ->get();
+            ->select(['id', 'nickname', 'province', 'city'])
+            ->get()->toArray();
 
         return $list;
     }
@@ -54,10 +54,8 @@ class UserService
         return [
             'id' => 'ID',
             'nickname' => '昵称',
-            'gender' => '性别',
-            'mobile' => '手机号',
-            'country' => '国家',
-            'province' => '省份'
+            'province' => '省份',
+            'city' => '城市'
         ];
     }
 

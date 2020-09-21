@@ -25,19 +25,18 @@ class ExportService
 
     public function export($headers, $list, $fileName)
     {
-        $columns = $headers;
-        $result = $list;
         $sheet = $this->spreadsheet->getActiveSheet();
 
         $row = 1;
         $column = 1;
-        foreach ($columns as $field => $description) {
+
+        foreach ($headers as $field => $description) {
             $sheet->setCellValueByColumnAndRow($column, $row, $description);
 
             $column ++;
         }
 
-        foreach ($result as $k=>$info) {
+        foreach ($list as $k=>$info) {
             $row = $k+2;
             $i = 1;
             foreach ($info as $key=>$value) {

@@ -59,11 +59,11 @@ class ExcelExportController
      */
     public function getUserList(RequestInterface $request, ResponseInterface $response)
     {
-        $minId = (int) $request->input('minId', 1);
-        $maxId = (int) $request->input('maxId', 20);
+        $minId = (int) $request->input('minId', 200);
+        $maxId = (int) $request->input('maxId', 500);
 
         $page = (int) $request->input('page', 1);
-        $pageSize = (int) $request->input("pageSize", 20);
+        $pageSize = (int) $request->input("pageSize", 30);
 
         $result = $this->userService->getUserListByIdWithPage($minId, $maxId, $page, $pageSize);
 
@@ -75,7 +75,7 @@ class ExcelExportController
      * @param ResponseInterface $response
      * @return \Psr\Http\Message\ResponseInterface
      *
-     * @GetMapping("exportList")
+     * @GetMapping("export")
      */
     public function exportUserList(RequestInterface $request, ResponseInterface $response)
     {
@@ -91,7 +91,7 @@ class ExcelExportController
             ])
         ]);
 
-        if ($result) return $response->json(Wraper::successWraperDefault("下载任务创建成功，请去下载中心下载"));
+        if ($result) return $response->json(Wraper::successWraperDefault("下载任务创建成功，请等待一分钟后去下载中心下载", ['url' => '/downloadCenter']));
         return $response->json(Wraper::failWraperDefault("下载任务下载失败，请重新尝试"));
     }
 
@@ -105,7 +105,7 @@ class ExcelExportController
     public function downloadList(RequestInterface $request, ResponseInterface $response)
     {
         $page = (int) $request->input('page', 1);
-        $pageSize = (int) $request->input('pageSize', 20);
+        $pageSize = (int) $request->input('pageSize', 320);
         $result = $this->exportTaskService->getSuccessTaskWithPage($page, $pageSize);
 
         return $response->json($result);

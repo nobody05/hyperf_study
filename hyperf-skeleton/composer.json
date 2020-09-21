@@ -45,7 +45,9 @@
         "cache/simple-cache-bridge": "^1.0",
         "cache/redis-adapter": "^1.0",
         "illuminate/database": "^7.27",
-        "hyperf/crontab": "^2.0"
+        "hyperf/crontab": "^2.0",
+        "google/protobuf": "^3.13",
+        "hyperf/grpc-server": "^2.0"
     },
     "require-dev": {
         "swoole/ide-helper": "^4.5",
@@ -71,7 +73,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "HyperfTest\\": "./test/"
+            "HyperfTest\\": "./test/",
+            "GPBMetadata\\": "./hyperf-skeleton/grpc/GPBMetadata/",
+            "Phpone\\": "./hyperf-skeleton/grpc/Phpone/"
         }
     },
     "minimum-stability": "dev",
