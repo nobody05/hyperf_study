@@ -20,6 +20,8 @@ demos study php hyperf framework
             - server.php             server配置
             - view.php               模板配置
        - Service
+         - Rpc                       服务提供逻辑
+           - SearchService.php
          - LogService.php            记录日志
          - LoginService.php          登录service
        - swoole_demo                 swoole的一些测试
@@ -33,6 +35,7 @@ demos study php hyperf framework
          - view 
             - socketio
                 - index.blade.php    聊天页面
+- rpc_client                         服务调用者
     
 - web                                前端页面
   - src                              dev 源码
