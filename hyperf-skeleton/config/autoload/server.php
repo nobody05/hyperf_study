@@ -44,6 +44,25 @@ return [
                 SwooleEvent::ON_FINISH => [Hyperf\Framework\Bootstrap\FinishCallback::class, 'onFinish'],
             ],
         ],
+        [
+            'name' => 'jsonrpc',
+            'type' => Server::SERVER_BASE,
+            'host' => '0.0.0.0',
+            'port' => 9503,
+            'sock_type' => SWOOLE_SOCK_TCP,
+            'callbacks' => [
+                SwooleEvent::ON_RECEIVE => [\Hyperf\JsonRpc\TcpServer::class, 'onReceive'],
+            ],
+            'settings' => [
+                'open_eof_split' => true,
+                'package_eof' => "\r\n",
+//                'open_length_check' => true,
+//                'package_length_type' => 'N',
+//                'package_length_offset' => 0,
+//                'package_body_offset' => 4,
+//                'package_max_length' => 1024 * 1024 * 2,
+            ],
+        ],
     ],
     'settings' => [
         'enable_coroutine' => true,

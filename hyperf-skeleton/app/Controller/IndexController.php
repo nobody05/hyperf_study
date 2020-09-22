@@ -11,8 +11,13 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Model\User;
+use App\Service\UserService;
+use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\GetMapping;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 
 /**
  * Class IndexController
@@ -22,17 +27,29 @@ use Hyperf\HttpServer\Annotation\GetMapping;
 class IndexController extends AbstractController
 {
     /**
+     * @var UserService
+     */
+    protected $userService;
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
+    /**
      * @return array
      * @GetMapping(path="index")
      */
-    public function index()
+    public function index(RequestInterface $request, ResponseInterface $response)
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
+        $user = $request->input('user', 'Hyperf');
+        $method = $request->getMethod();
+        $s = $this->userService->getNameById(500);
+
 
         return [
             'method' => $method,
             'message' => "Hello {$user}.",
+            'name' => $s
         ];
     }
 }

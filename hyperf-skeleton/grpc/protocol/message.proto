@@ -1,0 +1,19 @@
+syntax = "proto3";
+package phpone.grpc.test;
+
+
+//定义一个服务
+service UserService {
+    //定义一个方法 参数 及 返回
+    rpc getUserName(RequestInfo) returns (ResponseInfo) {};
+}
+
+//定义请求体
+message RequestInfo {
+    int32 userId = 1;
+}
+
+//定义返回体
+message ResponseInfo {
+    string name = 1;
+}

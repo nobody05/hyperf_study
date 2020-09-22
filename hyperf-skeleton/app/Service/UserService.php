@@ -59,6 +59,20 @@ class UserService
         ];
     }
 
+    /**
+     * @param $userId
+     * @return \Hyperf\Utils\HigherOrderTapProxy|mixed|void|string
+     */
+    public function getNameById($userId)
+    {
+        $result = User::query()
+            ->where("id", '=', $userId)
+            ->first(['nickname'])
+            ->toArray();
+
+        return $result['nickname'];
+    }
+
 
 
 }
